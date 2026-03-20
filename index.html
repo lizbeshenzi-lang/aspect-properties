@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspect Properties — London</title>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --stone:#f5f3ef;--off:#edeae4;--warm:#e2ded6;--border:#d0ccc4;
+  --ink:#1c1916;--mid:rgba(28,25,22,.52);--dim:rgba(28,25,22,.32);
+  --b1:rgba(28,25,22,.07);--b2:rgba(28,25,22,.12);
+  --dark:#0f0d0a;--copper:#8a6840;--copper2:#a07d50;
+  --serif:'Gilda Display',Georgia,serif;--sans:'Raleway',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--stone);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.75rem 5rem;background:rgba(245,243,239,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--b1)}
+.nav-name{font-family:var(--serif);font-size:1rem;letter-spacing:.15em;color:var(--ink);text-decoration:none}
+.nav-r{display:flex;align-items:center;gap:3.5rem}
+.nav-r a{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-r a:hover{color:var(--ink)}
+.nav-val{color:var(--ink)!important;border-bottom:1px solid var(--ink);padding-bottom:.1rem}
+
+/* HERO — editorial split */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:5rem}
+.hero-l{background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 5rem 5rem;position:relative;overflow:hidden}
+.hero-l img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:grayscale(20%)}
+.hero-l-content{position:relative;z-index:1}
+.hero-l-meta{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-bottom:4rem}
+.hero-h1{font-family:var(--serif);font-size:clamp(3.5rem,6vw,6.5rem);color:rgba(245,243,239,.95);line-height:.92;letter-spacing:-.02em;margin-bottom:2rem}
+.hero-h1 em{color:rgba(138,104,64,.9)}
+.hero-sub{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,243,239,.35);line-height:2.2;max-width:22rem;margin-bottom:3rem}
+.hero-cta{display:inline-flex;align-items:center;gap:2rem;font-family:var(--serif);font-size:.95rem;color:rgba(138,104,64,.9);text-decoration:none;border-bottom:1px solid rgba(138,104,64,.3);padding-bottom:.5rem;transition:all .2s}
+.hero-cta:hover{color:var(--copper2);gap:3rem}
+.hero-cta::after{content:'';width:3rem;height:1px;background:currentColor;flex-shrink:0}
+.hero-r{background:var(--stone);display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 5rem 5rem;border-left:1px solid var(--b1)}
+.hero-r-label{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:3rem}
+.hero-props{display:flex;flex-direction:column}
+.hero-prop{padding:1.5rem 0;border-top:1px solid var(--b1);display:flex;justify-content:space-between;align-items:start;gap:2rem;cursor:pointer;transition:background .2s}
+.hero-prop:last-child{border-bottom:1px solid var(--b1)}
+.hero-prop-info h3{font-family:var(--serif);font-size:.95rem;color:var(--ink);margin-bottom:.25rem}
+.hero-prop-info p{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.hero-prop-price{font-family:var(--serif);font-size:.9rem;color:var(--copper);white-space:nowrap;padding-top:.2rem}
+
+/* SEARCH */
+.search{background:var(--off);padding:3rem 5rem;display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:2rem;align-items:end;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sf{display:flex;flex-direction:column;gap:.5rem}
+.sf label{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.sf select{background:transparent;border:none;border-bottom:1px solid var(--b2);padding:.65rem 0;font-size:.82rem;font-family:var(--sans);color:var(--ink);outline:none;appearance:none;transition:border-color .2s}
+.sf select:focus{border-color:var(--ink)}
+.sf select option{background:var(--stone)}
+.s-btn{background:var(--ink);color:var(--stone);border:none;padding:.85rem 2rem;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:background .2s;white-space:nowrap}
+.s-btn:hover{background:var(--copper)}
+
+/* LISTINGS */
+.listings{padding:9rem 5rem;background:var(--stone)}
+.ls-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:5rem}
+.ls-label{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:.75rem}
+.ls-head h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.5rem);color:var(--ink);line-height:1.1}
+.ls-all{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);text-decoration:none;border-bottom:1px solid rgba(138,104,64,.3);padding-bottom:.15rem}
+.ls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.pc{background:var(--stone);cursor:pointer;transition:background .25s}
+.pc:hover{background:var(--off)}
+.pc:hover .pc-img img{transform:scale(1.04)}
+.pc-img{height:240px;overflow:hidden;position:relative}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.88) saturate(.85)}
+.pc-type{position:absolute;bottom:1.25rem;left:1.25rem;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.8);background:rgba(28,25,22,.5);backdrop-filter:blur(4px);padding:.3rem .65rem}
+.pc-body{padding:2rem}
+.pc-price{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin-bottom:.35rem}
+.pc-name{font-size:.82rem;color:var(--mid);margin-bottom:.25rem;letter-spacing:.02em}
+.pc-loc{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:1.25rem}
+.pc-specs{display:flex;gap:1.5rem;font-size:.68rem;color:var(--mid);letter-spacing:.06em}
+
+/* ABOUT */
+.about{padding:9rem 5rem;background:var(--off);display:grid;grid-template-columns:1fr 1fr;gap:10rem;align-items:start;border-top:1px solid var(--border)}
+.about-idx{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:1.5rem}
+.about h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.5rem);color:var(--ink);line-height:1.1}
+.about-r{padding-top:2.5rem}
+.about p{font-size:.75rem;color:var(--mid);line-height:2.4;margin-bottom:1.5rem;letter-spacing:.03em}
+.about-rule{height:1px;background:var(--border);margin:2.5rem 0}
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.af-l{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:.4rem}
+.af-v{font-family:var(--serif);font-size:.9rem;color:var(--copper)}
+
+/* VALUATION */
+.valuation{padding:9rem 5rem;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:10rem;align-items:start;border-top:1px solid rgba(255,255,255,.04)}
+.val-l h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.5rem);color:rgba(245,243,239,.9);line-height:1.1;margin-bottom:2rem}
+.val-l p{font-size:.72rem;color:rgba(245,243,239,.35);line-height:2.4;margin-bottom:1.5rem;letter-spacing:.04em}
+.val-note{padding:2rem;border:1px solid rgba(255,255,255,.06);font-size:.64rem;color:rgba(245,243,239,.25);line-height:2.2;margin-top:2rem;letter-spacing:.05em}
+.val-note strong{color:var(--copper);font-weight:400}
+.vf{display:flex;flex-direction:column}
+.vf-field{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
+.vf-field label{font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.28)}
+.vf-field input,.vf-field select{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.1);padding:.85rem 0;font-size:.8rem;font-family:var(--sans);color:rgba(245,243,239,.88);outline:none;transition:border-color .2s;appearance:none;letter-spacing:.04em}
+.vf-field input:focus,.vf-field select:focus{border-color:var(--copper)}
+.vf-field input::placeholder{color:rgba(245,243,239,.2)}
+.vf-field select option{background:var(--dark)}
+.vf-2col{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.vf-submit{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--copper);padding:1.2rem 2rem;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .25s;display:flex;align-items:center;justify-content:space-between;margin-top:.5rem}
+.vf-submit:hover{border-color:var(--copper);background:rgba(138,104,64,.06)}
+.vf-submit:disabled{opacity:.5;cursor:not-allowed}
+.vf-submit span{opacity:.4;font-size:1.1rem}
+.vf-status{margin-top:1rem;padding:.85rem 1rem;font-size:.75rem;display:none;letter-spacing:.04em}
+.vf-status.ok{background:rgba(138,104,64,.1);color:var(--copper);border:1px solid rgba(138,104,64,.3);display:block}
+.vf-status.err{background:rgba(220,38,38,.1);color:#f87171;border:1px solid rgba(220,38,38,.3);display:block}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.04);padding:5rem 5rem 3rem}
+.fi{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6rem;margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.fn{font-family:var(--serif);font-size:.95rem;letter-spacing:.1em;color:rgba(245,243,239,.8);margin-bottom:.75rem}
+.fb{font-size:.62rem;color:rgba(245,243,239,.25);line-height:2.4;max-width:20rem;letter-spacing:.04em}
+.fc h4{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(138,104,64,.5);margin-bottom:1.5rem}
+.fc a{display:block;font-size:.65rem;color:rgba(245,243,239,.25);text-decoration:none;margin-bottom:.7rem;transition:color .2s;letter-spacing:.06em}
+.fc a:hover{color:var(--copper)}
+.fbot{display:flex;justify-content:space-between;align-items:center;font-size:.52rem;letter-spacing:.15em}
+.fleg{color:rgba(245,243,239,.12);text-transform:uppercase}
+.fsince{font-family:var(--serif);color:rgba(138,104,64,.4);font-size:.72rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Aspect Properties</a>
+  <div class="nav-r">
+    <a href="#listings">Buy</a>
+    <a href="#listings">Let</a>
+    <a href="#about">About</a>
+    <a href="#valuation" class="nav-val">Valuation</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="London property">
+    <div class="hero-l-content">
+      <div class="hero-l-meta">London W11 · W2 · W1 · SW3 · Est. 2012</div>
+      <h1 class="hero-h1">London<br>Property,<br><em>Carefully</em><br>Handled</h1>
+      <p class="hero-sub">A boutique estate agency specialising in prime central London. Sales, lettings, and property management for buyers and landlords who value discretion.</p>
+      <a href="#valuation" class="hero-cta">Request a valuation</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-label">Recently listed</div>
+    <div class="hero-props">
+      <div class="hero-prop"><div class="hero-prop-info"><h3>Notting Hill — Garden flat</h3><p>W11 · 2 bed · 980 sq ft</p></div><div class="hero-prop-price">£1.85m</div></div>
+      <div class="hero-prop"><div class="hero-prop-info"><h3>Marylebone — Lateral apartment</h3><p>W1U · 3 bed · 1,450 sq ft</p></div><div class="hero-prop-price">£3.25m</div></div>
+      <div class="hero-prop"><div class="hero-prop-info"><h3>Chelsea — Townhouse</h3><p>SW3 · 5 bed · 3,200 sq ft</p></div><div class="hero-prop-price">£8.5m</div></div>
+      <div class="hero-prop"><div class="hero-prop-info"><h3>Bayswater — Lettings</h3><p>W2 · 2 bed · £3,800 pcm</p></div><div class="hero-prop-price">To Let</div></div>
+      <div class="hero-prop"><div class="hero-prop-info"><h3>Kensington — Penthouse</h3><p>W8 · 4 bed · 2,800 sq ft</p></div><div class="hero-prop-price">£12.9m</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="search">
+  <div class="sf"><label>Transaction</label><select><option>Buy</option><option>Let</option></select></div>
+  <div class="sf"><label>Location</label><select><option>All Areas</option><option>Notting Hill W11</option><option>Marylebone W1</option><option>Chelsea SW3</option><option>Kensington W8</option><option>Bayswater W2</option><option>Holland Park W11</option></select></div>
+  <div class="sf"><label>Property Type</label><select><option>All Types</option><option>Flat / Apartment</option><option>House</option><option>Townhouse</option><option>Penthouse</option></select></div>
+  <div class="sf"><label>Budget</label><select><option>Any price</option><option>Under £1m</option><option>£1m – £3m</option><option>£3m – £7m</option><option>£7m – £15m</option><option>£15m+</option></select></div>
+  <button class="s-btn" onclick="document.getElementById('listings').scrollIntoView({behavior:'smooth'})">Search</button>
+</div>
+
+<section class="listings" id="listings">
+  <div class="ls-head">
+    <div>
+      <div class="ls-label">Current Listings</div>
+      <h2>Available Properties</h2>
+    </div>
+    <a href="#" class="ls-all">View all properties</a>
+  </div>
+  <div class="ls-grid">
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Notting Hill"><div class="pc-type">For Sale</div></div><div class="pc-body"><div class="pc-price">£1,850,000</div><div class="pc-name">Garden flat with private patio</div><div class="pc-loc">Notting Hill · W11</div><div class="pc-specs"><span>2 bed</span><span>2 bath</span><span>980 sq ft</span></div></div></div>
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Marylebone"><div class="pc-type">For Sale</div></div><div class="pc-body"><div class="pc-price">£3,250,000</div><div class="pc-name">Lateral apartment, 6th floor</div><div class="pc-loc">Marylebone · W1U</div><div class="pc-specs"><span>3 bed</span><span>2 bath</span><span>1,450 sq ft</span></div></div></div>
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Chelsea"><div class="pc-type">For Sale</div></div><div class="pc-body"><div class="pc-price">£8,500,000</div><div class="pc-name">Victorian townhouse, south-facing garden</div><div class="pc-loc">Chelsea · SW3</div><div class="pc-specs"><span>5 bed</span><span>4 bath</span><span>3,200 sq ft</span></div></div></div>
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Bayswater"><div class="pc-type">To Let</div></div><div class="pc-body"><div class="pc-price">£3,800 pcm</div><div class="pc-name">Refurbished apartment with porter</div><div class="pc-loc">Bayswater · W2</div><div class="pc-specs"><span>2 bed</span><span>1 bath</span><span>780 sq ft</span></div></div></div>
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Kensington"><div class="pc-type">For Sale</div></div><div class="pc-body"><div class="pc-price">£12,900,000</div><div class="pc-name">Penthouse with roof terrace</div><div class="pc-loc">Kensington · W8</div><div class="pc-specs"><span>4 bed</span><span>4 bath</span><span>2,800 sq ft</span></div></div></div>
+    <div class="pc"><div class="pc-img"><img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Holland Park"><div class="pc-type">To Let</div></div><div class="pc-body"><div class="pc-price">£6,500 pcm</div><div class="pc-name">Freehold house, double garage</div><div class="pc-loc">Holland Park · W11</div><div class="pc-specs"><span>4 bed</span><span>3 bath</span><span>2,100 sq ft</span></div></div></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div>
+    <div class="about-idx">/ 001 — The agency</div>
+    <h2>Property handled with the care it deserves</h2>
+  </div>
+  <div class="about-r">
+    <p>Aspect Properties was founded in 2012 by two agents who left larger firms for the same reason: the volume model is incompatible with genuinely good advice. When an agent has thirty listings, no single one of them gets proper attention. We limit ourselves deliberately.</p>
+    <p>We operate across W11, W1, W2, W8, and SW3. We know these streets well enough to tell you which side of the road gets afternoon sun and which buildings have sound management companies. That knowledge is what we are paid for.</p>
+    <div class="about-rule"></div>
+    <div class="about-facts">
+      <div><div class="af-l">Founded</div><div class="af-v">2012, Notting Hill</div></div>
+      <div><div class="af-l">Transactions, 2024</div><div class="af-v">47 sales, 38 lettings</div></div>
+      <div><div class="af-l">Average achieved vs guide</div><div class="af-v">101.4%</div></div>
+      <div><div class="af-l">Regulatory</div><div class="af-v">RICS · NAEA</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="valuation" id="valuation">
+  <div class="val-l">
+    <h2>Request a valuation</h2>
+    <p>We offer free market appraisals for owners considering a sale or letting. The valuation takes around an hour and includes a written comparable analysis. There is no obligation to instruct us.</p>
+    <p>We also advise buyers and tenants on value — if you are considering an offer and want a second opinion, we are happy to provide one.</p>
+    <div class="val-note">
+      <strong>Discretion guaranteed</strong><br>
+      All valuation enquiries and property details are treated as strictly confidential. We do not share client information with third parties under any circumstances.
+    </div>
+  </div>
+  <div class="vf">
+    <div class="vf-field"><label>Full name</label><input type="text" id="vName" placeholder="—"></div>
+    <div class="vf-2col">
+      <div class="vf-field"><label>Email</label><input type="email" id="vEmail" placeholder="—"></div>
+      <div class="vf-field"><label>Phone</label><input type="tel" id="vPhone" placeholder="—"></div>
+    </div>
+    <div class="vf-field"><label>Property address or area</label><input type="text" id="vAddr" placeholder="—"></div>
+    <div class="vf-2col">
+      <div class="vf-field"><label>Property type</label>
+        <select id="vType"><option>—</option><option>Flat / Apartment</option><option>House</option><option>Townhouse</option><option>Penthouse</option></select>
+      </div>
+      <div class="vf-field"><label>Enquiry type</label>
+        <select id="vEnq"><option>—</option><option>Sale valuation</option><option>Lettings valuation</option><option>Buyer / tenant advice</option><option>General enquiry</option></select>
+      </div>
+    </div>
+    <div class="vf-field"><label>Anything else we should know</label><input type="text" id="vMsg" placeholder="—"></div>
+    <button class="vf-submit" id="vBtn" onclick="submitVal()">Send request <span>→</span></button>
+    <div class="vf-status" id="vStatus"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div><div class="fn">Aspect Properties</div><p class="fb">A boutique estate agency operating across prime central London. Sales, lettings, and property management. Founded 2012. RICS and NAEA members.</p></div>
+    <div class="fc"><h4>Services</h4><a href="#">Sales</a><a href="#">Lettings</a><a href="#">Property Management</a><a href="#">Valuation</a></div>
+    <div class="fc"><h4>Contact</h4><a href="#">14 Pembridge Road, W11</a><a href="#">+44 (0)20 7123 4567</a><a href="#">hello@aspectproperties.co.uk</a></div>
+  </div>
+  <div class="fbot">
+    <span class="fleg">© 2025 Aspect Properties Ltd · London W11 · RICS Reg. No. 123456 · NAEA Member</span>
+    <span class="fsince">Est. 2012</span>
+  </div>
+</footer>
+
+<script>
+async function submitVal() {
+  const name = document.getElementById('vName').value.trim();
+  const email = document.getElementById('vEmail').value.trim();
+  if (!name || !email) { showVS('Please enter your name and email.', 'err'); return; }
+  const btn = document.getElementById('vBtn');
+  btn.disabled = true; btn.childNodes[0].textContent = 'Sending... ';
+  try {
+    await fetch('/api/enquire', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, email,
+        phone: document.getElementById('vPhone').value,
+        service: document.getElementById('vEnq').value,
+        message: `Address: ${document.getElementById('vAddr').value} | Type: ${document.getElementById('vType').value} | ${document.getElementById('vMsg').value}`,
+        siteName: 'Aspect Properties'
+      })
+    }).catch(() => {});
+    showVS('Thank you. We will be in touch within one working day to arrange the valuation.', 'ok');
+    btn.childNodes[0].textContent = 'Sent ✓ ';
+  } catch {
+    btn.disabled = false; btn.childNodes[0].textContent = 'Send request ';
+    showVS('Something went wrong. Please email hello@aspectproperties.co.uk', 'err');
+  }
+}
+function showVS(m, t) { const e = document.getElementById('vStatus'); e.textContent = m; e.className = `vf-status ${t}`; }
+</script>
+</body>
+</html>
